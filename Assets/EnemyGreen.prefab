@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 2043092224663425281}
   m_Layer: 0
   m_Name: EnemyGreen
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
+  health: 0
 --- !u!58 &7119557164902849356
 CircleCollider2D:
   m_ObjectHideFlags: 0

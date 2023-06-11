@@ -99,7 +99,7 @@ GameObject:
   - component: {fileID: 1983612070585530811}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -157,6 +157,7 @@ MonoBehaviour:
   Player: {fileID: 6695663937097312426, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
+  health: 0
 --- !u!58 &7150141904558702061
 CircleCollider2D:
   m_ObjectHideFlags: 0

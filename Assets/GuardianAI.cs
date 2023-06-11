@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GuardianAI : MonoBehaviour
 {
+    [SerializeField] private int health;
+
     // Start is called before the first frame update
     void Start()
     {

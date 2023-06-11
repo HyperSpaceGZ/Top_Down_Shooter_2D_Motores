@@ -25,6 +25,15 @@ public class EnemyAI : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "bullet")
+        {
+            health--;
+            EnemyDeathCheck();
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (hastriggered == false && collision.gameObject.tag == "Player")
@@ -45,9 +54,16 @@ public class EnemyAI : MonoBehaviour
         EnemyNavMesh.SetDestination(Player.position);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
-    private void EnemyHit()
+    private void EnemyDeathCheck()
     {
-
+        if (health < 0)
+        {
+            Destroy(this.gameObject);
+        }
     }
+
+
+
+
 
 }
