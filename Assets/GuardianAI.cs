@@ -45,7 +45,11 @@ public class GuardianAI : MonoBehaviour
         if (collision.gameObject.tag == "bullet")
         {
             health--;
-            EnemyDeathCheck();
+            if (health <= 0)
+            {
+                Destroy(this.gameObject);
+                GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>().AddKill();  
+            }
         }
     }
 
@@ -78,11 +82,4 @@ public class GuardianAI : MonoBehaviour
         transform.Rotate(rotationamount * Time.deltaTime);
     }
 
-    private void EnemyDeathCheck()
-    {
-        if (health < 0)
-        {
-            Destroy(this.gameObject);
-        }
-    }
 }

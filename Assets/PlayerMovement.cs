@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -17,10 +19,14 @@ public class PlayerMovement : MonoBehaviour
     public float FireRate;
     private float NextFire;
 
+    private int health = 20;
+    public TMP_Text HealthText;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        UIRefreshHP();
     }
 
     // Update is called once per frame
@@ -60,6 +66,38 @@ public class PlayerMovement : MonoBehaviour
             GameObject bulletClone = Instantiate(Bullet, BulletSpawner.position, BulletSpawner.rotation);
             Rigidbody2D rb = bulletClone.GetComponent<Rigidbody2D>();
             rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "enemy")
+        {
+            health--;
+            UIRefreshHP();
+            PlayerDeathCheck();
+
+        }
+
+        if (collision.gameObject.tag == "enemybullet")
+        {
+            health--;
+            UIRefreshHP();
+            PlayerDeathCheck();
+        }
+
+    }
+
+    private void UIRefreshHP()
+    {
+        HealthText.text = "HP: " + health;
+    }
+
+    private void PlayerDeathCheck()
+    {
+        if (health <= 0)
+        {
+            SceneManager.LoadScene("Death");
         }
     }
 }

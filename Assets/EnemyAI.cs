@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private Transform Player;
+    [SerializeField] private Transform PlayerTransform;
+    [SerializeField] private GameObject Player;
     [SerializeField] private NavMeshAgent EnemyNavMesh;
     [SerializeField] private bool hastriggered;
 
@@ -17,6 +18,9 @@ public class EnemyAI : MonoBehaviour
         EnemyNavMesh = GetComponent<NavMeshAgent>();
         EnemyNavMesh.updateRotation = false;
         EnemyNavMesh.updateUpAxis = false;
+
+        Player = GameObject.FindGameObjectWithTag("Player");
+        PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -31,6 +35,11 @@ public class EnemyAI : MonoBehaviour
         {
             health--;
             EnemyDeathCheck();
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
         }
     }
 
@@ -51,7 +60,7 @@ public class EnemyAI : MonoBehaviour
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
         //Movimiento
-        EnemyNavMesh.SetDestination(Player.position);
+        EnemyNavMesh.SetDestination(PlayerTransform.position);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
     private void EnemyDeathCheck()
