@@ -6,12 +6,6 @@ public class BulletScript : MonoBehaviour
 {
     public float BulletSpawnedTime;
     public float BulletDespawnTime;
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
     void Update()
     {
         BulletSpawnedTime += Time.deltaTime;
@@ -24,6 +18,16 @@ public class BulletScript : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "enemy")
+        {
+            DestroyBullet();
+        }
+
+        if (collision.gameObject.tag == "EnemyGuardian")
+        {
+            DestroyBullet();
+        }
+
+        if (collision.gameObject.tag == "enemybullet")
         {
             DestroyBullet();
         }

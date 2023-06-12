@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4846034585924831227}
   - component: {fileID: 7399966707942913591}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 4224660868669892311}
   - component: {fileID: 7119557164902849356}
   - component: {fileID: 2043092224663425281}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyGreen
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
-  health: 0
+  health: 4
 --- !u!58 &7119557164902849356
 CircleCollider2D:
   m_ObjectHideFlags: 0

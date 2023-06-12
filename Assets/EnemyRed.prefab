@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8213903967889900561}
   - component: {fileID: 6959275523653152228}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 8995171348675861882}
   - component: {fileID: 2880974328036364240}
   - component: {fileID: 7336460873165804882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: EnemyRed
   m_TagString: enemy
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
-  health: 0
+  health: 3
 --- !u!58 &2880974328036364240
 CircleCollider2D:
   m_ObjectHideFlags: 0
