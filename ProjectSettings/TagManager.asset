@@ -12,6 +12,7 @@ TagManager:
   - EnemyGuardian
   - MinionSpawner
   - BossSpawn
+  - HealthItem
   layers:
   - Default
   - TransparentFX

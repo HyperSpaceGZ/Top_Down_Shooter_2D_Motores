@@ -86,6 +86,13 @@ public class PlayerMovement : MonoBehaviour
             PlayerDeathCheck();
         }
 
+        if ( health < 20 && collision.gameObject.tag == "HealthItem")
+        {
+            health++;
+            UIRefreshHP();
+            PlayerDeathCheck();
+        }
+
     }
 
     private void UIRefreshHP()

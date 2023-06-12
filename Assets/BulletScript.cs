@@ -36,6 +36,11 @@ public class BulletScript : MonoBehaviour
         {
             DestroyBullet();
         }
+
+        if (collision.gameObject.tag == "HealthItem")
+        {
+            DestroyBullet();
+        }
     }
 
     private void DestroyBullet()

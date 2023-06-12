@@ -8,12 +8,13 @@ public class GuardianAI : MonoBehaviour
 
     [SerializeField] private GameObject EnemyBullet;
     [SerializeField] private float EnemyBulletForce = 10f;
-    [SerializeField] private GameObject Minion;
+    [SerializeField] private GameObject HPDrop;
 
     [SerializeField] private Transform Spawner1;
     [SerializeField] private Transform Spawner2;
     [SerializeField] private Transform Spawner3;
     [SerializeField] private Transform Spawner4;
+    [SerializeField] private Transform HPDropSpawner;
 
     [SerializeField] private bool hastriggered;
     [SerializeField] public Vector3  rotationamount;
@@ -48,6 +49,7 @@ public class GuardianAI : MonoBehaviour
             if (health <= 0)
             {
                 Destroy(this.gameObject);
+                GameObject MINION = Instantiate(HPDrop, HPDropSpawner.position, Quaternion.identity);
                 GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>().AddKill();  
             }
         }
