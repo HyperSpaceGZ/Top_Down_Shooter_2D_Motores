@@ -31,6 +31,7 @@ public class UIScript : MonoBehaviour
         Guardians++;
         UIRefresh();
         AllCoinsCheck();
+        Debug.Log("TEST");
     }
 
     public void AllCoinsCheck()

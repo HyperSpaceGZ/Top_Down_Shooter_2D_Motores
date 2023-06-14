@@ -317,4 +317,4 @@ MonoBehaviour:
   hastriggered: 0
   Minion: {fileID: 9209798417107302934, guid: af22416843ca85345adc5a611c0aa7f5, type: 3}
   Spawner: {fileID: 0}
-  health: 100
+  health: 125

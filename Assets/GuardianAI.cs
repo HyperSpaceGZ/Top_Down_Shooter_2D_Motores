@@ -19,10 +19,13 @@ public class GuardianAI : MonoBehaviour
     [SerializeField] private bool hastriggered;
     [SerializeField] public Vector3  rotationamount;
 
+    private UIScript ScriptUI;
+
     // Start is called before the first frame update
     void Start()
     {
         hastriggered = false;
+        ScriptUI = GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>();
     }
 
     // Update is called once per frame
@@ -43,14 +46,15 @@ public class GuardianAI : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.collider.CompareTag("bullet"))
         {
             health--;
-            if (health <= 0)
+            if (health == 0)
             {
                 Destroy(this.gameObject);
                 GameObject MINION = Instantiate(HPDrop, HPDropSpawner.position, Quaternion.identity);
-                GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>().AddKill();  
+                ScriptUI.AddKill();
+                Debug.Log("muerte");
             }
         }
     }

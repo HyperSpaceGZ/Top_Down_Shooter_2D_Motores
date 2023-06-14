@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c63b220176d6eb47b0e2d6afdedc29f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 65
+  health: 35
   EnemyBullet: {fileID: 4697961837521597553, guid: 368fb1d0e5c863843a91398f3001b6b4, type: 3}
   EnemyBulletForce: 10
   HPDrop: {fileID: 3920371860143706565, guid: a071eb8dd9049b84db4e6d941c14eefd, type: 3}
