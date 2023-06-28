@@ -306,7 +306,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7015685232140468893}
-  - component: {fileID: 1006664718085369555}
   m_Layer: 0
   m_Name: TelefeDron
   m_TagString: Untagged
@@ -333,25 +332,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1006664718085369555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7015685232140468894}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f268d9defa4aa534ead87c07f6e2cd27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 0
-  rb: {fileID: 0}
-  EnemyBullet: {fileID: 4697961837521597553, guid: 8b63ccacbba47ce4fb791d7da7b0c4e3, type: 3}
-  Minion: {fileID: 1905455451346971582, guid: 95748a048ecfa91428702db798cb851a, type: 3}
-  Spawner1: {fileID: 6953047659126366170}
-  Spawner2: {fileID: 5852657267453148036}
-  Spawner3: {fileID: 3329125412383012139}
 --- !u!1 &7015685232154784063
 GameObject:
   m_ObjectHideFlags: 0
