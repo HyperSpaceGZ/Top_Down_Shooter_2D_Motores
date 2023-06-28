@@ -42,6 +42,7 @@ public class GuardianAI : MonoBehaviour
             InvokeRepeating("ShootingGuardian", 3f, 1.5f);
             InvokeRepeating("Rotation", 0f, 0.01f);
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -56,6 +57,12 @@ public class GuardianAI : MonoBehaviour
                 ScriptUI.AddKill();
                 Debug.Log("muerte");
             }
+        }
+
+        if (hastriggered == false && collision.gameObject.tag == "bullet")
+        {
+            hastriggered = true;
+            InvokeRepeating("EnemyFollowerMovement", 0f, 0.02f);
         }
     }
 

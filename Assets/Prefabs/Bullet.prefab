@@ -5059,4 +5059,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletSpawnedTime: 0
-  BulletDespawnTime: 3
+  BulletDespawnTime: 1

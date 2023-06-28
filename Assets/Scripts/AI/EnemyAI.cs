@@ -36,6 +36,12 @@ public class EnemyAI : MonoBehaviour
             health--;
             EnemyDeathCheck();
         }
+        
+        if (hastriggered == false && collision.gameObject.tag == "bullet")
+        {
+            hastriggered = true;
+            InvokeRepeating("EnemyFollowerMovement", 0f, 0.02f);
+        }
 
         if (collision.gameObject.tag == "Player")
         {
