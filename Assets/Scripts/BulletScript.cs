@@ -22,6 +22,11 @@ public class BulletScript : MonoBehaviour
             DestroyBullet();
         }
 
+        if (collision.gameObject.tag == "EnemyShooter")
+        {
+            DestroyBullet();
+        }
+
         if (collision.gameObject.tag == "EnemyGuardian")
         {
             DestroyBullet();

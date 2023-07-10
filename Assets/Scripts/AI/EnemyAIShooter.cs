@@ -45,7 +45,7 @@ public class EnemyAIShooter : EnemyAI
         if (hastriggered == false && collision.gameObject.tag == "Player")
         {
             hastriggered = true;
-            InvokeRepeating("ShootingEnemy", 1.5f, 1.5f);
+            InvokeRepeating("ShootingEnemy", 1.5f, 1f);
             InvokeRepeating("EnemyFollowerMovement", 0f, 0.02f);
         }
     }
