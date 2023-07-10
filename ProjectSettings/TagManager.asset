@@ -27,8 +27,8 @@ TagManager:
   - EnemyBullet
   - Enemy
   - EnemyBoss
-  - 
-  - 
+  - MiniMapLayer
+  - MinimapMapLayout
   - 
   - 
   - 
