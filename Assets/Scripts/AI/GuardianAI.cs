@@ -62,7 +62,8 @@ public class GuardianAI : MonoBehaviour
         if (hastriggered == false && collision.gameObject.tag == "bullet")
         {
             hastriggered = true;
-            InvokeRepeating("EnemyFollowerMovement", 0f, 0.02f);
+            InvokeRepeating("ShootingGuardian", 3f, 1.5f);
+            InvokeRepeating("Rotation", 0f, 0.01f);
         }
     }
 
