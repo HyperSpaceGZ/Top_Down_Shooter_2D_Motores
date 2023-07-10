@@ -5,15 +5,15 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
 {
-    [SerializeField] private Transform PlayerTransform;
-    [SerializeField] private GameObject Player;
+    [SerializeField] protected Transform PlayerTransform;
+    [SerializeField] protected GameObject Player;
     [SerializeField] private NavMeshAgent EnemyNavMesh;
-    [SerializeField] private bool hastriggered;
+    [SerializeField] protected bool hastriggered;
 
-    [SerializeField] private int health;
+    [SerializeField] protected int health;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         EnemyNavMesh = GetComponent<NavMeshAgent>();
         EnemyNavMesh.updateRotation = false;
@@ -23,13 +23,8 @@ public class EnemyAI : MonoBehaviour
         PlayerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    protected void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "bullet")
         {
@@ -49,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (hastriggered == false && collision.gameObject.tag == "Player")
         {
@@ -58,7 +53,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    private void EnemyFollowerMovement()
+    protected void EnemyFollowerMovement()
     {
         //Rotacion del sprite enemigo
         Vector2 direction = Player.transform.position - transform.position;
@@ -69,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         EnemyNavMesh.SetDestination(PlayerTransform.position);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
-    private void EnemyDeathCheck()
+    protected void EnemyDeathCheck()
     {
         if (health < 0)
         {
