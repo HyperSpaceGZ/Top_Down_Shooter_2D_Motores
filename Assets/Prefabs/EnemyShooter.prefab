@@ -480,7 +480,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
-  health: 6
+  health: 10
   EnemyBullet: {fileID: 4697961837521597553, guid: 368fb1d0e5c863843a91398f3001b6b4, type: 3}
   EnemyBulletForce: 10
   Spawner1: {fileID: 0}
