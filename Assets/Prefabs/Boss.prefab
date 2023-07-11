@@ -639,10 +639,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5053831109161763735}
+  - component: {fileID: 6068171721444175655}
   - component: {fileID: 8966778014297152571}
   - component: {fileID: 251817643738293811}
   - component: {fileID: 7219169847113198818}
-  - component: {fileID: 6068171721444175655}
   - component: {fileID: 8452784809842365396}
   m_Layer: 11
   m_Name: Boss
@@ -670,6 +670,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6068171721444175655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3158519343675829583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071482bcb7f6bf9428f5939ee4bdfa8e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  EnemyNavMesh: {fileID: 0}
+  hastriggered: 0
+  Minion: {fileID: 9209798417107302934, guid: af22416843ca85345adc5a611c0aa7f5, type: 3}
+  Spawner: {fileID: 0}
+  health: 180
 --- !u!60 &8966778014297152571
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -818,24 +836,6 @@ NavMeshAgent:
   m_BaseOffset: 0.43
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6068171721444175655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3158519343675829583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071482bcb7f6bf9428f5939ee4bdfa8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  EnemyNavMesh: {fileID: 0}
-  hastriggered: 0
-  Minion: {fileID: 9209798417107302934, guid: af22416843ca85345adc5a611c0aa7f5, type: 3}
-  Spawner: {fileID: 0}
-  health: 125
 --- !u!95 &8452784809842365396
 Animator:
   serializedVersion: 5
