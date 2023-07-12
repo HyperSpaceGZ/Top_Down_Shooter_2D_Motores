@@ -50,5 +50,10 @@ public class MenuScript : MonoBehaviour
         Application.Quit();
     }
 
+    public void Options()
+    {
+        SceneManager.LoadScene("Options");
+    }
+
 
 }
