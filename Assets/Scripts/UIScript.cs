@@ -7,6 +7,7 @@ using TMPro;
 public class UIScript : MonoBehaviour
 {
     public TMP_Text GuardiansText;
+    public TMP_Text BossSpawnText;
     public int Guardians;
     public GameObject[] GuardiansLeft;
 
@@ -14,9 +15,12 @@ public class UIScript : MonoBehaviour
 
     public GameObject Boss;
     public Transform BossSpawner;
+
+    [SerializeField] private float BossTextDisableTime;
     // Start is called before the first frame update
     void Start()
     {
+        BossSpawnText.enabled = false;
         GuardiansLeft = GameObject.FindGameObjectsWithTag("EnemyGuardian");
         UIRefresh();
     }
@@ -40,8 +44,16 @@ public class UIScript : MonoBehaviour
         {
             Debug.Log("PLAYER HAS KILLED ALL GUARDIANS");
             HasKilledAllGuardians = true;
-
-            GameObject MINION = Instantiate(Boss, BossSpawner.position, BossSpawner.rotation);
+            GameObject BOSS = Instantiate(Boss, BossSpawner.position, BossSpawner.rotation);
+            BossSpawnText.enabled = true;
+            StartCoroutine(BossTextDisable());
         }
     }
+
+    IEnumerator BossTextDisable()
+    {
+        yield return new WaitForSeconds(BossTextDisableTime);
+        BossSpawnText.enabled = false;
+    }
+
 }
