@@ -24,9 +24,9 @@ public class EnemyAI : MonoBehaviour
     }
 
 
-    protected void OnCollisionEnter2D(Collision2D collision)
+    public virtual void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "bullet")
+        if (collision.gameObject.CompareTag("bullet"))
         {
             health--;
             EnemyDeathCheck();
@@ -44,7 +44,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    protected void OnTriggerEnter2D(Collider2D collision)
+    public virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (hastriggered == false && collision.gameObject.tag == "Player")
         {
