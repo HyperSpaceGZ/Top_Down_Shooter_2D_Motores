@@ -5,12 +5,16 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PlayerMovement : MonoBehaviour
-{
+{ 
     //Player
     public float movementspeed;
-    public int playerhealth;
+    [SerializeField] private int health = 20;
+    [SerializeField] private int armor = 0;
+    [SerializeField] private bool hasArmor;
     public Rigidbody2D rb;
     Vector2 Movement;
+    public TMP_Text HealthText;
+    public TMP_Text ShieldText;
 
     //Bullets
     public GameObject Bullet;
@@ -19,14 +23,12 @@ public class PlayerMovement : MonoBehaviour
     public float FireRate;
     private float NextFire;
 
-    private int health = 20;
-    public TMP_Text HealthText;
-
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         UIRefreshHP();
+        hasArmor = false;
     }
 
     // Update is called once per frame
@@ -71,33 +73,63 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "enemy")
+        //Enemy Hit
+        if (armor > 0 && collision.collider.CompareTag("enemy"))
         {
+            ShielDMG();
+            Debug.Log("armor hit");
+            UIRefreshHP();
+        }
+        else if (armor == 0 && collision.gameObject.tag == "enemy")
+        {
+            hasArmor = false;
             health--;
             UIRefreshHP();
             PlayerDeathCheck();
-
+            Debug.Log("hp hit");
         }
 
-        if (collision.gameObject.tag == "enemybullet")
+        //Enemy Bullet Hit
+        if (armor > 0 && collision.gameObject.tag == "enemybullet")
         {
+            ShielDMG();
+            Debug.Log("armor hit");
+            UIRefreshHP();
+        }
+        else if (armor == 0 && collision.gameObject.tag == "enemybullet")
+        {
+            hasArmor = false;
             health--;
             UIRefreshHP();
             PlayerDeathCheck();
+            Debug.Log("hp hit");
         }
 
-        if ( health < 20 && collision.gameObject.tag == "HealthItem")
+        //Healing
+        if (health < 20 && collision.gameObject.tag == "HealthItem")
         {
             health++;
             UIRefreshHP();
-            PlayerDeathCheck();
         }
 
+        //Armoring
+        if (collision.gameObject.tag == "ShieldItem")
+        {
+            armor++;
+            UIRefreshHP();
+            hasArmor = true;
+        }
     }
 
     private void UIRefreshHP()
     {
         HealthText.text = "HP: " + health;
+        ShieldText.text = "" + armor;
+    }
+
+    private void ShielDMG() 
+    {
+        armor--;
     }
 
     private void PlayerDeathCheck()

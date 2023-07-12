@@ -14,11 +14,6 @@ public class EnemyAIShooter : EnemyAI
         Spawner2 = transform.GetChild(1);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public override void OnTriggerEnter2D(Collider2D collision)
     {
         if (hastriggered == false && collision.gameObject.tag == "Player")
