@@ -20,32 +20,38 @@ public class MenuScript : MonoBehaviour
     {
         LoadingScreen.enabled = true;
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1f;
     }
 
     public void Menu()
     {
         SceneManager.LoadScene("Menu");
+        Time.timeScale = 1f;
     }
 
     public void LevelSelect()
     {
         SceneManager.LoadScene("LevelSelect");
+        Time.timeScale = 1f;
     }
 
     public void Level1()
     {
         LoadingScreen.enabled = true;
         SceneManager.LoadScene("Game");
+        Time.timeScale = 1f;
     }
     public void Level2()
     {
         LoadingScreen.enabled = true;
         SceneManager.LoadScene("Game2");
+        Time.timeScale = 1f;
     }
     public void Level3()
     {
         LoadingScreen.enabled = true;
         SceneManager.LoadScene("Game3");
+        Time.timeScale = 1f;
     }
 
     public void Quit()
@@ -56,11 +62,13 @@ public class MenuScript : MonoBehaviour
     public void Options()
     {
         SceneManager.LoadScene("Options");
+        Time.timeScale = 1f;
     }
 
     public void Tutorial()
     {
         SceneManager.LoadScene("Tutorial");
+        Time.timeScale = 1f;
     }
 
     public void TutorialScreen1()

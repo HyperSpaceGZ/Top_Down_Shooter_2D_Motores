@@ -16,11 +16,31 @@ public class UIScript : MonoBehaviour
     public GameObject Boss;
     public Transform BossSpawner;
 
+    public GameObject PauseMenu;
+    public bool ispaused;
+
     [SerializeField] private float BossTextDisableTime;
     // Start is called before the first frame update
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (ispaused)
+            {
+                UnPauseGame();
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
     void Start()
     {
         BossSpawnText.enabled = false;
+        PauseMenu.SetActive(false);
         GuardiansLeft = GameObject.FindGameObjectsWithTag("EnemyGuardian");
         UIRefresh();
     }
@@ -56,4 +76,16 @@ public class UIScript : MonoBehaviour
         BossSpawnText.enabled = false;
     }
 
+    public void PauseGame()
+    {
+        PauseMenu.SetActive(true);
+        Time.timeScale = 0f;
+        ispaused = true;
+    }
+    public void UnPauseGame()
+    {
+        PauseMenu.SetActive(false);
+        Time.timeScale = 1f;
+        ispaused = false;
+    }
 }

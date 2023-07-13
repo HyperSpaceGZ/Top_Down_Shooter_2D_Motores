@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5641912363740802417}
   - component: {fileID: 5727438349475210888}
+  - component: {fileID: 6547304863921863746}
   m_Layer: 0
   m_Name: GM
   m_TagString: GameController
@@ -51,4 +52,22 @@ MonoBehaviour:
   HasKilledAllGuardians: 0
   Boss: {fileID: 3158519343675829583, guid: bf1b1ab338b645c41bc52600a192143e, type: 3}
   BossSpawner: {fileID: 0}
+  PauseMenu: {fileID: 0}
+  ispaused: 0
   BossTextDisableTime: 8
+--- !u!114 &6547304863921863746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552203833221221648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d52329929b61b6940b99095d598bfa3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LoadingScreen: {fileID: 0}
+  tutorial1: {fileID: 0}
+  tutorial2: {fileID: 0}
+  tutorial3: {fileID: 0}
