@@ -407,6 +407,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4697961837521597553, guid: 45b05e2e973914e49b0e7dc2b1cf8846, type: 3}
     - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      propertyPath: health
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: FireRate
       value: 0.2
       objectReference: {fileID: 0}

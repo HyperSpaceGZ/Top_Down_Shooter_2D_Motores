@@ -7,6 +7,9 @@ using UnityEngine.UI;
 public class MenuScript : MonoBehaviour
 {
     public Image LoadingScreen;
+    public Image tutorial1;
+    public Image tutorial2;
+    public Image tutorial3;
 
     private void Awake()
     {
@@ -55,5 +58,28 @@ public class MenuScript : MonoBehaviour
         SceneManager.LoadScene("Options");
     }
 
+    public void Tutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
+
+    public void TutorialScreen1()
+    {      
+        tutorial1.enabled = true;
+        tutorial2.enabled = false;
+        tutorial3.enabled = false;
+    }
+    public void TutorialScreen2()
+    {
+        tutorial1.enabled = false;
+        tutorial2.enabled = true;
+        tutorial3.enabled = false;
+    }
+    public void TutorialScreen3()
+    {
+        tutorial1.enabled = false;
+        tutorial2.enabled = false;
+        tutorial3.enabled = true;
+    }
 
 }
