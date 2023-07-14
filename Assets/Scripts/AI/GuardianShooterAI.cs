@@ -8,12 +8,16 @@ public class GuardianShooterAI : EnemyAIShooter
     [SerializeField] private Transform Spawner4;
     [SerializeField] public GameObject HPDrop;
 
+    private UIScript ScriptUI;
+
     void Start()
     {
         Spawner1 = transform.GetChild(0);
         Spawner2 = transform.GetChild(1);
         Spawner3 = transform.GetChild(2);
         Spawner4 = transform.GetChild(3);
+
+        ScriptUI = GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>();
     }
 
     public override void ShootingEnemy()
@@ -34,6 +38,7 @@ public class GuardianShooterAI : EnemyAIShooter
             {
                 Destroy(this.gameObject);
                 GameObject MINION = Instantiate(HPDrop, Spawner4.position, Quaternion.identity);
+                ScriptUI.AddKill();
                 Debug.Log("muerte");
             }
         }

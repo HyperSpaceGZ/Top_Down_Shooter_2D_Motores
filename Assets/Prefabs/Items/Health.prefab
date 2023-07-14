@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7998695784900853761}
   - component: {fileID: 178508270640820412}
   - component: {fileID: 7684987093723790829}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Health
   m_TagString: HealthItem
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4402567187207568422}
   - component: {fileID: 96224808514581835}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -187,7 +187,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3037165827042162261}
   - component: {fileID: 3972677711066079231}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}

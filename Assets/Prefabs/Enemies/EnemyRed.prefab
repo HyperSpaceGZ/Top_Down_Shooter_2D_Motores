@@ -553,7 +553,7 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
-  health: 8
+  health: 6
 --- !u!58 &2880974328036364240
 CircleCollider2D:
   m_ObjectHideFlags: 0
