@@ -106,7 +106,7 @@ public class PlayerMovement : MonoBehaviour
         }
 
         //Healing
-        if (health < 20 && collision.gameObject.tag == "HealthItem")
+        if (health < 10 && collision.gameObject.tag == "HealthItem")
         {
             health++;
             UIRefreshHP();
