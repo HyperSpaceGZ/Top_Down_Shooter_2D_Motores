@@ -15,6 +15,7 @@ TagManager:
   - HealthItem
   - EnemyShooter
   - ShieldItem
+  - Portal
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - MiniMapLayer
   - MinimapMapLayout
   - Item
-  - 
+  - Portal
   - 
   - 
   - 

@@ -663,8 +663,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 7753877571048913215}
   - {fileID: 6191287233554189301}
+  - {fileID: 7753877571048913215}
   - {fileID: 5423718661635232811}
   - {fileID: 2765057221774600664}
   m_Father: {fileID: 0}
@@ -685,7 +685,8 @@ MonoBehaviour:
   Player: {fileID: 0}
   EnemyNavMesh: {fileID: 0}
   hastriggered: 0
-  Minion: {fileID: 9209798417107302934, guid: af22416843ca85345adc5a611c0aa7f5, type: 3}
+  Portal: {fileID: 5524509216192517199, guid: a7ecc4ed9def11645baf09f4ca724db4, type: 3}
+  Minion: {fileID: 7735480685940418907, guid: 59fe7cc1bb33c874280eb35244b773a7, type: 3}
   Spawner: {fileID: 0}
   health: 300
 --- !u!60 &8966778014297152571

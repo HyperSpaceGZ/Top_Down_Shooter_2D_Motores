@@ -25,12 +25,14 @@ public class MenuScript : MonoBehaviour
 
     public void Menu()
     {
+        LoadingScreen.enabled = true;
         SceneManager.LoadScene("Menu");
         Time.timeScale = 1f;
     }
 
     public void LevelSelect()
     {
+        LoadingScreen.enabled = true;
         SceneManager.LoadScene("LevelSelect");
         Time.timeScale = 1f;
     }

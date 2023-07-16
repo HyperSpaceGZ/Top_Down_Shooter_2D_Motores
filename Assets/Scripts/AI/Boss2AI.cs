@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,12 +10,15 @@ public class Boss2AI : EnemyAIShooter
     [SerializeField] private Transform Spawner3;
     [SerializeField] private Transform Spawner4;
     [SerializeField] private Transform Spawner5;
+    [SerializeField] private Transform Spawner6;
 
     [SerializeField] private Transform enemySpawner1;
     [SerializeField] private Transform enemySpawner2;
 
     [SerializeField] private GameObject Minion1;
     [SerializeField] private GameObject Minion2;
+
+    [SerializeField] private GameObject Portal;
 
     void Start()
     {
@@ -26,6 +30,8 @@ public class Boss2AI : EnemyAIShooter
 
         enemySpawner1 = transform.GetChild(5);
         enemySpawner2 = transform.GetChild(6);
+
+        Spawner6 = transform.GetChild(7);
     }
 
     public override void OnCollisionEnter2D(Collision2D collision)
@@ -59,7 +65,7 @@ public class Boss2AI : EnemyAIShooter
         if (health < 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene("Win");
+            GameObject Portal1 = Instantiate(Portal, Spawner6.position, Quaternion.identity);
         }
     }
 

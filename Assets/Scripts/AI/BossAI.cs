@@ -9,6 +9,7 @@ public class BossAI : MonoBehaviour
     [SerializeField] private Transform Player;
     [SerializeField] private NavMeshAgent EnemyNavMesh;
     [SerializeField] private bool hastriggered;
+    [SerializeField] private GameObject Portal;
 
     [SerializeField] private GameObject Minion;
     [SerializeField] private Transform Spawner;
@@ -58,7 +59,7 @@ public class BossAI : MonoBehaviour
         if (health < 0)
         {
             Destroy(this.gameObject);
-            SceneManager.LoadScene("Win");
+            GameObject Portal1 = Instantiate(Portal, Spawner.position, Quaternion.identity);
         }
     }
     private void BossMinionSpawn()
