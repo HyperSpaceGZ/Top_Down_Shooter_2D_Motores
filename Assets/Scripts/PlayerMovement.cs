@@ -23,12 +23,20 @@ public class PlayerMovement : MonoBehaviour
     public float FireRate;
     private float NextFire;
 
+    //power ups
+    [SerializeField] private float PowerUpSpeedTimer;
+    [SerializeField] private bool SpeedSet;
+    [SerializeField] private float PowerUpTripleShotTimer;
+    [SerializeField] private bool TripleShotSet;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         UIRefreshHP();
         hasArmor = false;
+        SpeedSet = false;
+        TripleShotSet = false;
     }
 
     // Update is called once per frame
@@ -112,12 +120,16 @@ public class PlayerMovement : MonoBehaviour
             UIRefreshHP();
         }
 
-        //Armoring
-        if (collision.gameObject.tag == "ShieldItem")
+        //ItemSpeed
+        if (collision.gameObject.tag == "Speed")
         {
-            armor++;
-            UIRefreshHP();
-            hasArmor = true;
+            SpeedBoost();
+        }
+
+        //ItemShoot
+        if (collision.gameObject.tag == "TripleShot")
+        {
+
         }
     }
 
@@ -139,4 +151,26 @@ public class PlayerMovement : MonoBehaviour
             SceneManager.LoadScene("Death");
         }
     }
+
+    private void SpeedBoost()
+    {
+        if(SpeedSet == false)
+        {
+            movementspeed = movementspeed * 2;
+            StartCoroutine(SpeedBoostTimer());
+            SpeedSet = true;
+        }     
+    }
+    private void SpeedBoostOrigin()
+    {
+        movementspeed = movementspeed / 2;
+        SpeedSet = false;
+    }
+
+    IEnumerator SpeedBoostTimer()
+    {
+        yield return new WaitForSeconds(PowerUpSpeedTimer);
+        SpeedBoostOrigin();
+    }
+
 }
