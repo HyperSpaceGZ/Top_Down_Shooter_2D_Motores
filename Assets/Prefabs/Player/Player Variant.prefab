@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1199152399636648387
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 672526179319269089}
+  m_Layer: 6
+  m_Name: BulletSpawnerB
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &672526179319269089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1199152399636648387}
+  m_LocalRotation: {x: 0, y: 0, z: 0.2588191, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: -0.03600025, z: 0}
+  m_LocalScale: {x: 0.3375, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2512745916956662054}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 30}
 --- !u!1 &2222714057276450481
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,6 +260,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6978872904408260841
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5656651383980609724}
+  m_Layer: 6
+  m_Name: BulletSpawnerA
+  m_TagString: Untagged
+  m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5656651383980609724
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978872904408260841}
+  m_LocalRotation: {x: -0, y: -0, z: -0.258819, w: 0.9659259}
+  m_LocalPosition: {x: 0, y: -0.03600025, z: 0}
+  m_LocalScale: {x: 0.3375, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2512745916956662054}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -30}
 --- !u!1 &8488370867545873765
 GameObject:
   m_ObjectHideFlags: 0
@@ -422,6 +484,22 @@ PrefabInstance:
       propertyPath: movementspeed
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      propertyPath: BulletSpawnerA
+      value: 
+      objectReference: {fileID: 5656651383980609724}
+    - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      propertyPath: BulletSpawnerB
+      value: 
+      objectReference: {fileID: 672526179319269089}
+    - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      propertyPath: PowerUpSpeedTimer
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      propertyPath: PowerUpTripleShotTimer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6450692221593060148, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: m_SortingOrder
       value: 19
@@ -605,6 +683,12 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6695663937097312426, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 5656651383980609724}
+    - targetCorrespondingSourceObject: {fileID: 6695663937097312426, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 672526179319269089}
     - targetCorrespondingSourceObject: {fileID: 6695663937097312426, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8129691722544371503}

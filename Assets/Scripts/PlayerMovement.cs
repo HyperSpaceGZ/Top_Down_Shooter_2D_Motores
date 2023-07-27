@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour
     //Bullets
     public GameObject Bullet;
     public Transform BulletSpawner;
+    public Transform BulletSpawnerA;
+    public Transform BulletSpawnerB;
     public float BulletForce;
     public float FireRate;
     private float NextFire;
@@ -45,10 +47,19 @@ public class PlayerMovement : MonoBehaviour
         MovementXY();
         LookAtMouse();
 
-        if(Input.GetAxis("Fire1") != 0)
+        if(TripleShotSet == false && Input.GetAxis("Fire1") != 0)
         {
             Shooting();
         }
+
+        if (TripleShotSet == true && Input.GetAxis("Fire1") != 0)
+        {
+            Shooting();
+            ShootingA();
+            ShootingB();
+        }
+
+
     }
 
     void FixedUpdate()
@@ -75,6 +86,28 @@ public class PlayerMovement : MonoBehaviour
             NextFire = Time.time + FireRate;
             GameObject bulletClone = Instantiate(Bullet, BulletSpawner.position, BulletSpawner.rotation);
             Rigidbody2D rb = bulletClone.GetComponent<Rigidbody2D>();
+            rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void ShootingA()
+    {
+        if (Time.time > NextFire)
+        {
+            NextFire = Time.time + FireRate;
+            GameObject bulletCloneA = Instantiate(Bullet, BulletSpawnerA.position, BulletSpawnerA.rotation);
+            Rigidbody2D rbA = bulletCloneA.GetComponent<Rigidbody2D>();
+            rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
+        }
+    }
+
+    private void ShootingB()
+    {
+        if (Time.time > NextFire)
+        {
+            NextFire = Time.time + FireRate;
+            GameObject bulletCloneB = Instantiate(Bullet, BulletSpawnerB.position, BulletSpawnerB.rotation);
+            Rigidbody2D rbB = bulletCloneB.GetComponent<Rigidbody2D>();
             rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
         }
     }
@@ -129,7 +162,8 @@ public class PlayerMovement : MonoBehaviour
         //ItemShoot
         if (collision.gameObject.tag == "TripleShot")
         {
-
+            TripleShotSet = true;
+            StartCoroutine(TripleShootTimer());
         }
     }
 
@@ -171,6 +205,12 @@ public class PlayerMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(PowerUpSpeedTimer);
         SpeedBoostOrigin();
+    }
+
+    IEnumerator TripleShootTimer()
+    {
+        yield return new WaitForSeconds(PowerUpTripleShotTimer);
+        TripleShotSet = false;
     }
 
 }
