@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool SpeedSet;
     [SerializeField] private float PowerUpTripleShotTimer;
     [SerializeField] private bool TripleShotSet;
+    public float TripleShotFireRate;
+    private float TripleShotNextFire;
 
     // Start is called before the first frame update
     void Start()
@@ -54,9 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (TripleShotSet == true && Input.GetAxis("Fire1") != 0)
         {
-            Shooting();
-            ShootingA();
-            ShootingB();
+            TripleShoot();
         }
 
 
@@ -90,25 +90,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void ShootingA()
+    private void TripleShoot()
     {
         if (Time.time > NextFire)
         {
-            NextFire = Time.time + FireRate;
+            NextFire = Time.time + TripleShotFireRate;
+            
             GameObject bulletCloneA = Instantiate(Bullet, BulletSpawnerA.position, BulletSpawnerA.rotation);
             Rigidbody2D rbA = bulletCloneA.GetComponent<Rigidbody2D>();
-            rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
-        }
-    }
+            rbA.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
 
-    private void ShootingB()
-    {
-        if (Time.time > NextFire)
-        {
-            NextFire = Time.time + FireRate;
             GameObject bulletCloneB = Instantiate(Bullet, BulletSpawnerB.position, BulletSpawnerB.rotation);
             Rigidbody2D rbB = bulletCloneB.GetComponent<Rigidbody2D>();
-            rb.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
+            rbB.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
+
+            GameObject bulletCloneC = Instantiate(Bullet, BulletSpawner.position, BulletSpawner.rotation);
+            Rigidbody2D rbC = bulletCloneC.GetComponent<Rigidbody2D>();
+            rbC.AddRelativeForce(Vector3.up * BulletForce, ForceMode2D.Impulse);
         }
     }
 
@@ -190,14 +188,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if(SpeedSet == false)
         {
-            movementspeed = movementspeed * 2;
+            movementspeed = movementspeed * 1.5f;
             StartCoroutine(SpeedBoostTimer());
             SpeedSet = true;
         }     
     }
     private void SpeedBoostOrigin()
     {
-        movementspeed = movementspeed / 2;
+        movementspeed = movementspeed / 1.5f;
         SpeedSet = false;
     }
 
