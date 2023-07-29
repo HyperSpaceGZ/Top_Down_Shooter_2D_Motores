@@ -67,7 +67,7 @@ public class Boss2AI : EnemyAIShooter
         }
     }
 
-    public override void ShootingEnemy()
+    protected override void ShootingEnemy()
     {
         base.ShootingEnemy();
 

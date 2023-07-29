@@ -24,7 +24,7 @@ public class EnemyAIShooter : EnemyAI
         }
     }
 
-    public virtual void ShootingEnemy()
+    protected virtual void ShootingEnemy()
     {
         //Spawner1
         GameObject bulletClone1 = Instantiate(EnemyBullet, Spawner1.position, Spawner1.rotation);

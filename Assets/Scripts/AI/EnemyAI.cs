@@ -7,13 +7,13 @@ public class EnemyAI : MonoBehaviour
 {
     [SerializeField] protected Transform PlayerTransform;
     [SerializeField] protected GameObject Player;
-    [SerializeField] private NavMeshAgent EnemyNavMesh;
+    [SerializeField] protected NavMeshAgent EnemyNavMesh;
     [SerializeField] protected bool hastriggered;
 
     [SerializeField] protected int health;
 
     // Start is called before the first frame update
-    void Awake()
+    protected virtual void Awake()
     {
         EnemyNavMesh = GetComponent<NavMeshAgent>();
         EnemyNavMesh.updateRotation = false;
@@ -53,7 +53,7 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    protected void EnemyFollowerMovement()
+    protected virtual void EnemyFollowerMovement()
     {
         //Rotacion del sprite enemigo
         Vector2 direction = Player.transform.position - transform.position;
@@ -71,9 +71,4 @@ public class EnemyAI : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-
-
-
-
-
 }

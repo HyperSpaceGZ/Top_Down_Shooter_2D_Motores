@@ -20,7 +20,7 @@ public class GuardianShooterAI : EnemyAIShooter
         ScriptUI = GameObject.FindGameObjectWithTag("GameController").GetComponent<UIScript>();
     }
 
-    public override void ShootingEnemy()
+    protected override void ShootingEnemy()
     {
         base.ShootingEnemy();
 
