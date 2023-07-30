@@ -6,10 +6,21 @@ using UnityEngine.AI;
 public class Boss3AI : EnemyAI
 {
     [SerializeField] private GameObject Portal;
+    [SerializeField] bool ShieldIsDestroyed;
+    [SerializeField] int ArmAmount;
+    [SerializeField] int ArmsDestroyed;
+    [SerializeField] private GameObject Shield;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        ShieldIsDestroyed = false;
+        Shield = transform.GetChild(1).gameObject;
+    }
 
     public override void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("bullet"))
+        if (ShieldIsDestroyed == true && collision.gameObject.CompareTag("bullet"))
         {
             health--;
             EnemyDeathCheck();
@@ -31,9 +42,28 @@ public class Boss3AI : EnemyAI
         }
     }
 
-    protected override void EnemyFollowerMovement()
+    private void DestroyShield()
     {
-       EnemyNavMesh.SetDestination(PlayerTransform.position);
+        if (ArmsDestroyed >= ArmAmount)
+        {
+            Debug.Log("Shield Destroyed");
+            ShieldIsDestroyed = true;
+            Shield.SetActive(false);
+        }
     }
 
+    private void OnEnable()
+    {
+        ArmHP.armdestroyEvent += DestroyArm;
+    }
+    private void OnDisable()
+    {
+        ArmHP.armdestroyEvent -= DestroyArm;
+    }
+    private void DestroyArm()
+    {
+        ArmsDestroyed++;
+        DestroyShield();
+        Debug.Log("ARM DESTROYED");
+    }
 }
