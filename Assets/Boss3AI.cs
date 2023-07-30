@@ -6,15 +6,17 @@ using UnityEngine.AI;
 public class Boss3AI : EnemyAI
 {
     [SerializeField] private GameObject Portal;
+    [SerializeField] bool RArmDestroyed;
+    [SerializeField] bool LArmDestroyed;
     [SerializeField] bool ShieldIsDestroyed;
-    [SerializeField] int ArmAmount;
-    [SerializeField] int ArmsDestroyed;
     [SerializeField] private GameObject Shield;
 
     protected override void Awake()
     {
         base.Awake();
         ShieldIsDestroyed = false;
+        RArmDestroyed = false;
+        LArmDestroyed = false;
         Shield = transform.GetChild(1).gameObject;
     }
 
@@ -44,9 +46,9 @@ public class Boss3AI : EnemyAI
 
     private void DestroyShield()
     {
-        if (ArmsDestroyed >= ArmAmount)
+        if (RArmDestroyed == true && LArmDestroyed == true)
         {
-            Debug.Log("Shield Destroyed");
+            Debug.Log("SHIELD DESTROYED");
             ShieldIsDestroyed = true;
             Shield.SetActive(false);
         }
@@ -54,16 +56,24 @@ public class Boss3AI : EnemyAI
 
     private void OnEnable()
     {
-        ArmHP.armdestroyEvent += DestroyArm;
+        ArmHP.armdestroyEvent += DestroyArmRight;
+        ArmHP1.arm1destroyEvent += DestroyArmLeft;
     }
     private void OnDisable()
     {
-        ArmHP.armdestroyEvent -= DestroyArm;
+        ArmHP.armdestroyEvent -= DestroyArmRight;
+        ArmHP1.arm1destroyEvent -= DestroyArmLeft;
     }
-    private void DestroyArm()
+    private void DestroyArmRight()
     {
-        ArmsDestroyed++;
+        RArmDestroyed = true;
         DestroyShield();
-        Debug.Log("ARM DESTROYED");
+        Debug.Log("RIGHT ARM DESTROYED");
+    }
+    private void DestroyArmLeft()
+    {
+        LArmDestroyed = true;
+        DestroyShield();
+        Debug.Log("LEFT ARM DESTROYED");
     }
 }
