@@ -58,8 +58,6 @@ public class PlayerMovement : MonoBehaviour
         {
             TripleShoot();
         }
-
-
     }
 
     void FixedUpdate()
