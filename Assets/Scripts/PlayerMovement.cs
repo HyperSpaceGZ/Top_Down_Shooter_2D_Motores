@@ -149,6 +149,15 @@ public class PlayerMovement : MonoBehaviour
         {
             health++;
             UIRefreshHP();
+
+        }
+
+        //Shielding
+        if (collision.gameObject.tag == "ShieldItem")
+        {
+            armor++;
+            hasArmor = true;
+            UIRefreshHP();
         }
 
         //ItemSpeed
