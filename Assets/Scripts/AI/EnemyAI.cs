@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour
         EnemyNavMesh.SetDestination(PlayerTransform.position);
         transform.rotation = Quaternion.Euler(Vector3.forward * angle);
     }
-    protected void EnemyDeathCheck()
+    protected virtual void EnemyDeathCheck()
     {
         if (health < 0)
         {

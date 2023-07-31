@@ -164,4 +164,13 @@ public class Boss3AI : EnemyAI
         GameObject MINION2 = Instantiate(Minion2, enemySpawner2.position, enemySpawner2.rotation);
         GameObject MINION3 = Instantiate(Minion3, enemySpawner3.position, enemySpawner3.rotation);
     }
+
+    protected override void EnemyDeathCheck()
+    {
+        if (health < 0)
+        {
+            Destroy(this.gameObject);
+            GameObject Portal1 = Instantiate(Portal, enemySpawner3.position, Quaternion.identity);
+        }
+    }
 }
