@@ -494,7 +494,7 @@ PrefabInstance:
       objectReference: {fileID: 672526179319269089}
     - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: PowerUpSpeedTimer
-      value: 10
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: TripleShotFireRate
@@ -502,7 +502,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5680038304157665611, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: PowerUpTripleShotTimer
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6450692221593060148, guid: 93b3c41db1c255a4eadcd8d609e9c9e5, type: 3}
       propertyPath: m_SortingOrder

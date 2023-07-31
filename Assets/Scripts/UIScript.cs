@@ -18,14 +18,27 @@ public class UIScript : MonoBehaviour
 
     public GameObject PauseMenu;
     public GameObject WinMenu;
+    public GameObject Map;
+    public bool mapshown;
     public bool ispaused;
-    public bool haswon ;
+    public bool haswon;
 
     [SerializeField] private float BossTextDisableTime;
-    // Start is called before the first frame update
+    void Start()
+    {
+        haswon = false;
+        mapshown = false;
+    BossSpawnText.enabled = false;
+        PauseMenu.SetActive(false);
+        WinMenu.SetActive(false);
+        GuardiansLeft = GameObject.FindGameObjectsWithTag("EnemyGuardian");
+        UIRefresh();
+    }
 
     void Update()
     {
+        Map.SetActive(false);
+
         if (haswon == false && Input.GetKeyDown(KeyCode.Escape))
         {
             if (ispaused)
@@ -37,16 +50,11 @@ public class UIScript : MonoBehaviour
                 PauseGame();
             }
         }
-    }
 
-    void Start()
-    {
-        haswon = false;
-        BossSpawnText.enabled = false;
-        PauseMenu.SetActive(false);
-        WinMenu.SetActive(false);
-        GuardiansLeft = GameObject.FindGameObjectsWithTag("EnemyGuardian");
-        UIRefresh();
+        if (haswon == false && Input.GetKey(KeyCode.Tab))
+        {
+            Map.SetActive(true);
+        }
     }
 
     private void UIRefresh()
