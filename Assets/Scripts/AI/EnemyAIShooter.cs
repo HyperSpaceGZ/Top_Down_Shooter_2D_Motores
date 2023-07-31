@@ -24,6 +24,27 @@ public class EnemyAIShooter : EnemyAI
         }
     }
 
+    public override void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("bullet"))
+        {
+            health--;
+            EnemyDeathCheck();
+        }
+
+        if (hastriggered == false && collision.gameObject.tag == "bullet")
+        {
+            hastriggered = true;
+            InvokeRepeating("ShootingEnemy", 1.5f, 1f);
+            InvokeRepeating("EnemyFollowerMovement", 0f, 0.02f);
+        }
+
+        if (collision.gameObject.tag == "Player")
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
     protected virtual void ShootingEnemy()
     {
         //Spawner1

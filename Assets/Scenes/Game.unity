@@ -445,7 +445,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2055082763 stripped
 MonoBehaviour:
@@ -512,7 +512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2855513621186741177, guid: 26cae5ab22873a64f9162252cb1b6ed9, type: 3}
       propertyPath: m_CullingMask.m_Bits
-      value: 45047
+      value: 61431
       objectReference: {fileID: 0}
     - target: {fileID: 3266830455778764130, guid: 26cae5ab22873a64f9162252cb1b6ed9, type: 3}
       propertyPath: m_Name
@@ -812,7 +812,7 @@ PrefabInstance:
       objectReference: {fileID: 1512158998}
     - target: {fileID: 8729840707737186133, guid: b1227b644dae6724f9945a51f9a0e918, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8729840707737186133, guid: b1227b644dae6724f9945a51f9a0e918, type: 3}
       propertyPath: m_LocalPosition.x
