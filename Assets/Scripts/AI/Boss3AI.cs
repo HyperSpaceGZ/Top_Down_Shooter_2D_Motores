@@ -96,12 +96,12 @@ public class Boss3AI : EnemyAI
     private void OnEnable()
     {
         ArmHP.armdestroyEvent += DestroyArmRight;
-        ArmHP1.arm1destroyEvent += DestroyArmLeft;
+        ArmHP2.arm1destroyEvent += DestroyArmLeft;
     }
     private void OnDisable()
     {
         ArmHP.armdestroyEvent -= DestroyArmRight;
-        ArmHP1.arm1destroyEvent -= DestroyArmLeft;
+        ArmHP2.arm1destroyEvent -= DestroyArmLeft;
     }
     private void DestroyArmRight()
     {

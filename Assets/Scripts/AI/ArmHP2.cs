@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArmHP1 : MonoBehaviour
+public class ArmHP2 : MonoBehaviour
 {
     public delegate void Arm1DestroyEvent();
     public static Arm1DestroyEvent arm1destroyEvent;
